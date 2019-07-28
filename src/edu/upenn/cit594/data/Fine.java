@@ -29,12 +29,12 @@ public class Fine {
 		this.state = values_string.get(4);
 		this.violation_id = Integer.parseInt(values_string.get(5));
 		// TODO: solve exception error
-//		if (values_string.size() == 5) {
+//		if (values_string.size() < 6) {
 //			this.zip_code = 0;
 //		} else {
 //			this.zip_code = Integer.parseInt(values_string.get(6));
 //		}
-//		
+		
 	}
 
 	public Date getDate() {

@@ -17,7 +17,6 @@ public class CSVReader {
 			scanner.hasNextLine();
 			scanner.nextLine();
 			while (scanner.hasNextLine()) {
-				// need to parse data accordingly
 				String rowData = scanner.nextLine();
 				getDataFromLine(rowData);
 			}
@@ -39,7 +38,7 @@ public class CSVReader {
 				rowValues.add(rowScanner.next());
 			}
 			Fine fine = new Fine(rowValues);
-			//fines.add(fine);
+			fines.add(fine);
 		} catch (Exception e) {
 			System.out.println("Some scanner or row problem...");
 		}

@@ -12,7 +12,7 @@ class CSVReaderTest {
 	void testCSVReader() {
 		File file = new File("parking.csv");
 		CSVReader csvr = new CSVReader(file);
-		//System.out.println(csvr.fines.get(0)); 
+		System.out.println(csvr.fines.get(0).getState()); 
 	}
 
 }
