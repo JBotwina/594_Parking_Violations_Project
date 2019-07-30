@@ -16,6 +16,7 @@ class JSONReaderTest {
 	void testJSONReader() throws FileNotFoundException, IOException, ParseException {
 		JSONReader jsonr = new JSONReader("parking.json");
 		JSONObject first = (JSONObject) jsonr.violations.get(0);
+		System.out.println(first);
 		System.out.println(first.get("state"));
 	}
 
