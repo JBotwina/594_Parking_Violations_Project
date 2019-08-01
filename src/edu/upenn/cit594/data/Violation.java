@@ -15,7 +15,7 @@ public class Violation {
 	private int vehicle_id;
 	private String state;
 	private String violation_id;
-	private int zip_code;
+	private String zip_code;
 	
 	public Violation (ArrayList<String> values_string) {
 //		TODO: solve exception error
@@ -49,7 +49,7 @@ public class Violation {
 		this.vehicle_id = Integer.parseInt((String) violationObj.get("plate_id"));
 		this.state = (String) violationObj.get("state");
 		this.violation_id = violationObj.get("ticket_number").toString();
-		this.zip_code = Integer.parseInt((String) violationObj.get("zip_code"));
+		this.zip_code = (String) violationObj.get("zip_code");
 		
 	}
 
@@ -78,7 +78,7 @@ public class Violation {
 		return violation_id;
 	}
 
-	public int getZip_code() {
+	public String getZip_code() {
 		return zip_code;
 	}
 
