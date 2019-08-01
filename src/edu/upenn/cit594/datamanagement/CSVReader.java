@@ -9,7 +9,7 @@ import edu.upenn.cit594.data.Violation;
 
 public class CSVReader {
 	
-	ArrayList<Violation> violations = new ArrayList<>();
+	private ArrayList<Violation> violations = new ArrayList<>();
 	
 	public CSVReader (File file) {		
 		try {
@@ -42,6 +42,10 @@ public class CSVReader {
 		} catch (Exception e) {
 			System.out.println("Some scanner or row problem...");
 		}
+	}
+
+	public ArrayList<Violation> getViolations() {
+		return violations;
 	}
 
 }

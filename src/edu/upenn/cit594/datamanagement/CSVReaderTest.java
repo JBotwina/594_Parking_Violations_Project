@@ -12,8 +12,8 @@ class CSVReaderTest {
 	void testCSVReader() {
 		File file = new File("parking.csv");
 		CSVReader csvr = new CSVReader(file);
-		System.out.println(csvr.violations.get(0).getState());
-		System.out.println(csvr.violations.size());
+		System.out.println(csvr.getViolations().get(0).getState());
+		System.out.println(csvr.getViolations().size());
 	}
 
 }
