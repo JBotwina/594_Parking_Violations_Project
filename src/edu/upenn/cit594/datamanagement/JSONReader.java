@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -13,25 +14,36 @@ import org.json.simple.*;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import edu.upenn.cit594.data.Violation;
+
 public class JSONReader {
 	JSONParser parser = new JSONParser();
-	JSONArray violations;
+	JSONArray violationsRaw;
+	public ArrayList<Violation> violations = new ArrayList<>();
 	HashMap<String, Integer> finesByZip = new HashMap<>();
 	
 	public JSONReader(String parkingFile) throws FileNotFoundException, IOException, ParseException {
-		violations = (JSONArray)parser.parse(new FileReader(parkingFile));
-		/*
-		JSONObject tenth = (JSONObject) violations.get(1);
-		System.out.println((tenth.get("state").toString().equals("PA")));
-		*/
+		violationsRaw = (JSONArray)parser.parse(new FileReader(parkingFile));
+		violationsRawToViolationArray(violationsRaw);
 	}
 	
+	public void violationsRawToViolationArray(JSONArray violationsRaw) {
+		Violation violation;
+		for(Object violationRaw : violationsRaw) {
+			JSONObject violationObj = (JSONObject) violationRaw;
+			String zip = violationObj.get("zip_code").toString();
+			String state = violationObj.get("state").toString();
+			if((zip.length()== 5) && (isNumber(zip)) && (state.equals("PA"))) {
+				violations.add(new Violation(violationObj));
+			}
+		}
+	}
 	public void writeZipAndFines() throws FileNotFoundException {
 		PrintWriter printWriter = new PrintWriter ("fines.txt");
 		for(Object violation : violations) {
 			JSONObject violationObj = (JSONObject) violation;
 			
-			if((violationObj.get("zip_code").toString().length() != 5) || (violationObj.get("state").toString().equals("PA"))) {
+			if((violationObj.get("zip_code").toString().length() != 5) || !(violationObj.get("state").toString().equals("PA"))) {
 				continue;
 			}
 			
@@ -42,7 +54,7 @@ public class JSONReader {
 	
 	public HashMap<String, Integer> aggregateFinesByZip(){
 		
-		File finesFile = new File("test.txt");
+		File finesFile = new File("fines.txt");
 		Scanner finesScan = null;
 		try {
 			finesScan = new Scanner(finesFile);
@@ -74,4 +86,7 @@ public class JSONReader {
 		}
 		printWriter.close();
 	}
+	public boolean isNumber(String string) {
+	    return string.matches("^\\d+$");
+	  }
 }
