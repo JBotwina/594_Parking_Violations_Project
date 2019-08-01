@@ -8,7 +8,7 @@ import java.util.Date;
 import org.json.simple.JSONObject;
 
 public class Violation {
-	
+
 	private String date;
 	private double fine_amount;
 	private String description;
@@ -16,27 +16,19 @@ public class Violation {
 	private String state;
 	private String violation_id;
 	private String zip_code;
-	
+
 	public Violation (ArrayList<String> values_string) {
-//		TODO: solve exception error
-//		try {
-//			this.date = new SimpleDateFormat("YYYY-MM-DD​T​hh:mm:ss").parse(values_string.get(0));
-//		} catch (ParseException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		    this.date = values_string.get(0);
-			//this.fine_amount = Double.parseDouble(values_string.get(1));
-			this.description = values_string.get(2);
-			this.vehicle_id = Integer.parseInt(values_string.get(3));
-			this.state = values_string.get(4);
-			this.violation_id = (String) values_string.get(5);
-			// TODO: solve exception error
-//			if (values_string.size() < 6) {
-//				this.zip_code = 0;
-//			} else {
-//				this.zip_code = Integer.parseInt(values_string.get(6));
-//			}
+		this.date = values_string.get(0);
+		this.fine_amount = Double.parseDouble(values_string.get(1));
+		this.description = values_string.get(2);
+		this.vehicle_id = Integer.parseInt(values_string.get(3));
+		this.state = values_string.get(4);
+		this.violation_id = (String) values_string.get(5);
+		if (values_string.get(6) == null) {
+			this.zip_code = "";
+		} else {
+			this.zip_code = values_string.get(6);
+		}
 	}
 
 	//overloaded constructor when info is coming from a json file
@@ -50,7 +42,7 @@ public class Violation {
 		this.state = (String) violationObj.get("state");
 		this.violation_id = violationObj.get("ticket_number").toString();
 		this.zip_code = (String) violationObj.get("zip_code");
-		
+
 	}
 
 

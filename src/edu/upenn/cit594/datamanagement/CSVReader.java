@@ -5,11 +5,11 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import edu.upenn.cit594.data.Fine;
+import edu.upenn.cit594.data.Violation;
 
 public class CSVReader {
 	
-	ArrayList<Fine> fines = new ArrayList<>();
+	ArrayList<Violation> violations = new ArrayList<>();
 	
 	public CSVReader (File file) {		
 		try {
@@ -37,8 +37,8 @@ public class CSVReader {
 			while (rowScanner.hasNext()) {
 				rowValues.add(rowScanner.next());
 			}
-			Fine fine = new Fine(rowValues);
-			fines.add(fine);
+			Violation violation = new Violation(rowValues);
+			violations.add(violation);
 		} catch (Exception e) {
 			System.out.println("Some scanner or row problem...");
 		}
