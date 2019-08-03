@@ -21,7 +21,7 @@ public class ResultsWriter {
 	public void writeTotalFile (HashMap<String, Double> finesByZip) throws FileNotFoundException {
 		PrintWriter printWriter = new PrintWriter ("total.txt");
 		for (Entry<String, Double> entry : finesByZip.entrySet()) {
-			printWriter.println (entry.getKey()+ " "+ entry.getValue());
+			printWriter.println (entry.getKey()+ " " + entry.getValue());
 		}
 		printWriter.close();
 	}

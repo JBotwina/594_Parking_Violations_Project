@@ -12,7 +12,7 @@ public class Violation {
 	private String date;
 	private double fine;
 	private String violation;
-	private int plateId;
+	private String plateId;
 	private String state;
 	private String ticketNumber;
 	private String zipCode;
@@ -21,7 +21,7 @@ public class Violation {
 		this.date = values_string.get(0);
 		this.fine = Double.parseDouble(values_string.get(1));
 		this.violation = values_string.get(2);
-		this.plateId = Integer.parseInt(values_string.get(3));
+		this.plateId = values_string.get(3);
 		this.state = values_string.get(4);
 		this.ticketNumber = (String) values_string.get(5);
 		if (values_string.size() < 7) {
@@ -44,7 +44,7 @@ public class Violation {
 		return violation;
 	}
 
-	public int getPlateId() {
+	public String getPlateId() {
 		return plateId;
 	}
 
