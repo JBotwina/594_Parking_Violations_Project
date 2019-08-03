@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class PopulationParser {
 	private File popFile;
 	private Scanner popScan;
-	private HashMap<String, Integer> zipPop = new HashMap<>();
+	private HashMap<String, Integer> populationByZip = new HashMap<>();
 	public PopulationParser(String file) {
 		popFile = new File(file);
 		
@@ -21,10 +21,11 @@ public class PopulationParser {
 		while(popScan.hasNextLine()) {
 		String zipAndPopRaw = popScan.nextLine();
 		String[] zipAndPop = zipAndPopRaw.split(" ");
-		zipPop.put(zipAndPop[0], Integer.parseInt(zipAndPop[1]));
+		populationByZip.put(zipAndPop[0], Integer.parseInt(zipAndPop[1]));
 		}
 	}
-	public HashMap<String, Integer> getZipPop() {
-		return zipPop;
+	
+	public HashMap<String, Integer> getPopulationByZip() {
+		return populationByZip;
 	}
 }
