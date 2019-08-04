@@ -5,6 +5,9 @@ import java.util.TreeMap;
 
 public class Display {
 	
+	/*
+	 * Prints sorted Total Fines Per Capita to the console.
+	 */
 	public void displayTotalFinesPerCapita (TreeMap<String, Double> totalFinesPerCapita) {
 		
 		for (Entry<String, Double> entry : totalFinesPerCapita.entrySet()) {

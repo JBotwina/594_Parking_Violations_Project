@@ -9,7 +9,8 @@ import java.util.Map.Entry;
 import edu.upenn.cit594.data.Violation;
 
 public class ResultsWriter {
-
+	
+	//writes the file for the answer of Q1
 	public void writeZipAndFines (ArrayList<Violation> violations) throws FileNotFoundException {
 		PrintWriter printWriter = new PrintWriter ("fines.txt");
 		for(Violation violation : violations) {
@@ -17,7 +18,7 @@ public class ResultsWriter {
 		}
 		printWriter.close();
 	}
-	
+	//writes the file for the answer of Q2
 	public void writeTotalFile (HashMap<String, Double> finesByZip) throws FileNotFoundException {
 		PrintWriter printWriter = new PrintWriter ("total.txt");
 		for (Entry<String, Double> entry : finesByZip.entrySet()) {

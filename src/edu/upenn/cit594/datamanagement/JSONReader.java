@@ -17,15 +17,20 @@ public class JSONReader {
 	private JSONArray violationsRaw;
 	
 	private ArrayList<Violation> violations = new ArrayList<>();
-		
+	
+	/*
+	 * Constructor accepts a file to parse.
+	 */
 	public JSONReader(File file) {
 		FileReader parkingFile;
 		try {
 			parkingFile = new FileReader(file);
+			//create raw json array of violations.
 			violationsRaw = (JSONArray)parser.parse(parkingFile);
 			
 			Iterator iter = violationsRaw.iterator();
 			
+			//populate violations with violations.
 			while (iter.hasNext()) {
 				ArrayList<String> entryValues = new ArrayList<String>();
 				JSONObject violationObj = (JSONObject) iter.next();

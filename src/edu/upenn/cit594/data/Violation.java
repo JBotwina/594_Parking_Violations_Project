@@ -16,7 +16,9 @@ public class Violation {
 	private String state;
 	private String ticketNumber;
 	private String zipCode;
-
+	/*
+	 * Constructor for Violation class. Accepts an arraylist<String>
+	 */
 	public Violation (ArrayList<String> values_string) {
 		this.date = values_string.get(0);
 		this.fine = Double.parseDouble(values_string.get(1));

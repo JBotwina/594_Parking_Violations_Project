@@ -26,9 +26,10 @@ public class CSVReader {
 		}
 		
 	}
-	
+	/*
+	 * Get the data from the file and populate an ArrayList<Violations>
+	 */
 	public void getDataFromLine(String line) {
-		// TODO: change type
 		ArrayList<String> rowValues = new ArrayList<String>();
 		Scanner rowScanner;
 		try {

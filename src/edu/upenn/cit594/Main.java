@@ -49,7 +49,7 @@ public class Main {
 			/* 1. Determining Fine for Each Violation */
 			
 			DataAnalyzer da = new DataAnalyzer();
-			q1violations = da.onlyPennWithPlate(violations);
+			q1violations = da.filterViolations(violations);
 			ResultsWriter rw = new ResultsWriter();
 			rw.writeZipAndFines(q1violations);
 			
