@@ -14,8 +14,6 @@ public class CSVReader {
 	public CSVReader (File file) {		
 		try {
 			Scanner scanner = new Scanner(file);
-			scanner.hasNextLine();
-			scanner.nextLine();
 			while (scanner.hasNextLine()) {
 				String rowData = scanner.nextLine();
 				getDataFromLine(rowData);
