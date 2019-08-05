@@ -31,14 +31,14 @@ public class Main {
 			if (args[0].equals("csv")) {
 				CSVReader csvr = new CSVReader(file);
 				violations.addAll(csvr.getViolations());
-				System.out.println(violations.size());
+				//System.out.println(violations.size());
 			}
 			
 			// if json:
 			else if (args[0].equals("json")) {
 				JSONReader jsonr = new JSONReader(file);
 				violations.addAll(jsonr.getViolations());
-				System.out.println(violations.size());
+				//System.out.println(violations.size());
 			}
 			
 			// if neither csv nor json
