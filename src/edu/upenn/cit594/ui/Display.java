@@ -11,7 +11,7 @@ public class Display {
 	public void displayTotalFinesPerCapita (TreeMap<String, Double> totalFinesPerCapita) {
 		
 		for (Entry<String, Double> entry : totalFinesPerCapita.entrySet()) {
-			 System.out.println(entry.getKey() + " " + entry.getValue());
+			 System.out.println(entry.getKey() + " " + String.format("%.4f", entry.getValue()));
 		 }
 		
 	}
