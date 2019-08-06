@@ -14,7 +14,7 @@ public class ResultsWriter {
 	public void writeZipAndFines (ArrayList<Violation> violations) throws FileNotFoundException {
 		PrintWriter printWriter = new PrintWriter ("fines.txt");
 		for(Violation violation : violations) {
-			printWriter.println ((violation.getZipCode() + " "+ violation.getFine()));
+			printWriter.println ((violation.getZipCode() + " "+ String.format("%.0f", violation.getFine())));
 		}
 		printWriter.close();
 	}
@@ -22,7 +22,7 @@ public class ResultsWriter {
 	public void writeTotalFile (HashMap<String, Double> finesByZip) throws FileNotFoundException {
 		PrintWriter printWriter = new PrintWriter ("total.txt");
 		for (Entry<String, Double> entry : finesByZip.entrySet()) {
-			printWriter.println (entry.getKey()+ " " + entry.getValue());
+			printWriter.println (entry.getKey()+ " " + String.format("%.0f", entry.getValue()));
 		}
 		printWriter.close();
 	}
